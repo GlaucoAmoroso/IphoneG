@@ -3,10 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iPhone 17 Pro Mini Cam — Apple Hardware Concept & 3D Studio</title>
-  <!-- Tailwind CSS -->
+  <title>iPhone 17 Pro Mini Cam — 3D Studio, Disassembly, Shopping & Build Guide</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google <model-viewer> for native interactive 3D GLB inspection -->
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
@@ -15,9 +13,7 @@
       background-color: #090A0C;
       color: #F5F5F7;
     }
-    .font-mono {
-      font-family: 'JetBrains Mono', monospace;
-    }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
     model-viewer {
       width: 100%;
       height: 100%;
@@ -33,10 +29,6 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .red-glow {
-      box-shadow: 0 0 28px rgba(220, 32, 28, 0.35);
-    }
-    /* Custom Hotspot Styling */
     .hotspot {
       display: flex;
       align-items: center;
@@ -51,75 +43,64 @@
       backdrop-filter: blur(8px);
       transition: all 0.2s ease;
       cursor: pointer;
-      pointer-events: auto;
     }
-    .hotspot:hover {
-      border-color: #DC201C;
-      transform: scale(1.05);
-    }
+    .hotspot:hover { border-color: #DC201C; transform: scale(1.05); }
     .hotspot-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #DC201C;
-      box-shadow: 0 0 8px #DC201C;
+      width: 7px; height: 7px; border-radius: 999px;
+      background: #DC201C; box-shadow: 0 0 8px #DC201C;
     }
   </style>
 </head>
 <body class="antialiased selection:bg-[#DC201C] selection:text-white">
 
-  <!-- Sticky Apple-Style Top Navigation Bar -->
+  <!-- Sticky Navigation Bar -->
   <header class="fixed top-0 inset-x-0 z-50 apple-blur bg-[#090A0C]/80 border-b border-white/10">
     <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
       <div class="flex items-center gap-3">
         <span class="w-2.5 h-2.5 rounded-full bg-[#DC201C] animate-pulse"></span>
         <span class="font-semibold tracking-tight text-sm text-white">iPhone 17 Pro <span class="text-[#9E9B95] font-normal">Mini Cam</span></span>
-        <span class="hidden sm:inline-block text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-zinc-400">V3 DUAL USB-C</span>
+        <span class="hidden sm:inline-block text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-zinc-400">1:1 SCALE // 71.5 × 48.5 × 10.6 MM</span>
       </div>
-      <nav class="hidden md:flex items-center gap-7 text-xs text-zinc-400 font-medium">
-        <a href="#studio-3d" class="hover:text-white transition">Studio 3D</a>
-        <a href="#specifiche" class="hover:text-white transition">Specifiche CAD</a>
+      <nav class="hidden md:flex items-center gap-6 text-xs text-zinc-400 font-medium">
+        <a href="#studio-3d" class="hover:text-white transition">Studio 3D (.GLB)</a>
+        <a href="#esploso-3d" class="hover:text-white transition">3D Disassemblabile</a>
+        <a href="#shopping-list" class="hover:text-white transition">Cosa Comprare & Link</a>
+        <a href="#guida-assemblaggio" class="hover:text-white transition">Guida Montaggio</a>
         <a href="#keynote-10" class="hover:text-white transition">Keynote 10 Slide</a>
-        <a href="#bom-aliexpress" class="hover:text-white transition">BOM AliExpress</a>
       </nav>
-      <div class="flex items-center gap-2.5">
+      <div class="flex items-center gap-2">
         <label for="glb-upload" class="cursor-pointer text-xs font-mono px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 text-zinc-300 transition">
           Carica .GLB
         </label>
         <input id="glb-upload" type="file" accept=".glb,.gltf" class="hidden" />
         <a href="iphone17pro_mini_v3.glb" download class="text-xs font-medium px-3.5 py-1.5 rounded-full bg-[#DC201C] hover:bg-[#b81916] text-white transition">
-          Scarica 3D (.GLB)
+          Scarica .GLB
         </a>
       </div>
     </div>
   </header>
 
-  <!-- HERO + INTERACTIVE 3D VIEWER SECTION -->
-  <section id="studio-3d" class="relative pt-24 pb-16 min-h-screen flex flex-col justify-between overflow-hidden">
-    <!-- Subtle radial studio backlight -->
+  <!-- SECTION 1: HERO & INTERACTIVE 3D GLB STUDIO -->
+  <section id="studio-3d" class="relative pt-24 pb-14 min-h-screen flex flex-col justify-between overflow-hidden">
     <div class="pointer-events-none absolute inset-0 flex items-center justify-center">
       <div class="w-[620px] h-[620px] rounded-full bg-gradient-to-tr from-[#DC201C]/10 via-zinc-500/10 to-transparent blur-3xl"></div>
     </div>
 
-    <!-- Top Headline -->
     <div class="relative z-10 max-w-4xl mx-auto px-6 text-center space-y-3">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-zinc-300">
-        <span class="text-[#DC201C] font-bold">NEW</span> PROTOTIPO V3 // 46.2 × 30.8 × 5.89 MM
+        <span class="text-[#DC201C] font-bold">1:1 REAL IPHONE SCALE</span> 71.50 × 48.45 × 10.63 MM • DUAL USB-C
       </div>
       <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight">
-        <span class="titanium-gradient">Titanio.</span> Ottica Pro.<br />
-        <span class="text-white">Doppia USB-C.</span>
+        <span class="titanium-gradient">La testa di iPhone 17 Pro.</span><br />
+        <span class="text-white">Trasformata in Cinema-Cam.</span>
       </h1>
       <p class="text-sm sm:text-base text-zinc-400 max-w-2xl mx-auto">
-        Il comparto fotografico di iPhone 17 Pro racchiuso in una micro action-cam spessa appena <strong class="text-white">5.89 mm</strong>, con schermo OLED posteriore attivo, tasto <strong class="text-[#DC201C]">REC</strong> dedicato e doppia porta USB-C per registrare in ProRes 4K 120fps su SSD esterno mentre è in carica.
+        Progettata alle quote reali 1:1 della parte superiore di un iPhone Pro (<strong class="text-white">71.50 mm</strong> di larghezza) per accogliere la <strong class="text-white">vera scheda madre originale Apple</strong>, il blocco tripla fotocamera 48MP + LiDAR, una batteria LiPo da <strong class="text-white">2100 mAh</strong>, display touch da <strong class="text-white">2.87"</strong> e doppia porta USB-C.
       </p>
     </div>
 
-    <!-- 3D Model Viewer Stage -->
     <div class="relative z-10 max-w-6xl mx-auto w-full px-6 my-4">
-      <div class="relative w-full h-[460px] sm:h-[540px] rounded-3xl bg-gradient-to-b from-[#14161B] to-[#0D0E12] border border-white/10 shadow-2xl overflow-hidden">
-        
-        <!-- Top-left floating badge inside 3D stage -->
+      <div class="relative w-full h-[460px] sm:h-[520px] rounded-3xl bg-gradient-to-b from-[#14161B] to-[#0D0E12] border border-white/10 shadow-2xl overflow-hidden">
         <div class="absolute top-4 left-4 z-20 flex flex-wrap items-center gap-2">
           <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 text-[11px] font-mono text-zinc-300">
             Trascina per ruotare • Scroll per zoom
@@ -132,7 +113,6 @@
           </button>
         </div>
 
-        <!-- <model-viewer> loading iphone17pro_mini_v3.glb -->
         <model-viewer
           id="cam-viewer"
           src="iphone17pro_mini_v3.glb"
@@ -141,7 +121,7 @@
           auto-rotate
           auto-rotate-delay="1000"
           rotation-per-second="18deg"
-           camera-orbit="35deg 78deg 0.85m"
+          camera-orbit="35deg 78deg 0.85m"
           min-camera-orbit="auto auto 0.35m"
           max-camera-orbit="auto auto 2.0m"
           field-of-view="32deg"
@@ -151,10 +131,9 @@
           environment-image="neutral"
           interaction-prompt="none"
         >
-          <!-- 3D Interactive Hotspots -->
           <button class="hotspot" slot="hotspot-lenses" data-position="-0.08 0.02 0.042" data-normal="0 0 1" onclick="setCameraView('front')">
             <span class="hotspot-dot"></span>
-            <span>3× 48MP + LiDAR</span>
+            <span>3× 48MP Ø17.5mm + LiDAR</span>
           </button>
           <button class="hotspot" slot="hotspot-rec" data-position="0.095 0.155 -0.01" data-normal="0 1 0" onclick="setCameraView('top')">
             <span class="hotspot-dot"></span>
@@ -166,185 +145,169 @@
           </button>
           <button class="hotspot" slot="hotspot-screen" data-position="0.02 0.0 -0.042" data-normal="0 0 -1" onclick="setCameraView('back')">
             <span class="hotspot-dot"></span>
-            <span>Display OLED 41×26 mm</span>
+            <span>Display OLED 2.87"</span>
           </button>
         </model-viewer>
 
-        <!-- Fallback banner shown ONLY if opened via local file:// protocol where browser CORS blocks fetch of local .glb -->
         <div id="cors-fallback" class="hidden absolute bottom-16 inset-x-6 z-30 p-3.5 rounded-2xl bg-black/85 border border-[#DC201C]/60 text-xs flex flex-col sm:flex-row items-center justify-between gap-3">
           <div class="text-zinc-300">
-            <strong class="text-white">Nota apertura locale (`file://`):</strong> il browser blocca il caricamento automatico dei file `.glb` senza server locale. Su <strong>GitHub Pages</strong> si carica in automatico; in locale clicca qui a destra per selezionare `iphone17pro_mini_v3.glb`.
+            <strong class="text-white">Apertura locale (`file://`):</strong> su GitHub Pages il 3D si carica in automatico; in locale clicca qui a destra per selezionare `iphone17pro_mini_v3.glb`.
           </div>
           <label for="glb-upload" class="shrink-0 cursor-pointer px-3.5 py-1.5 rounded-full bg-[#DC201C] text-white font-mono font-semibold">
             Seleziona iphone17pro_mini_v3.glb
           </label>
         </div>
 
-        <!-- Bottom Apple Camera-Angle Preset Pill Bar -->
         <div class="absolute bottom-4 inset-x-0 z-20 flex justify-center px-4">
           <div class="apple-blur bg-black/70 border border-white/15 rounded-full p-1.5 flex flex-wrap items-center gap-1">
-            <button onclick="setCameraView('hero')" class="cam-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white text-black transition" id="view-hero">
-              3/4 Hero
-            </button>
-            <button onclick="setCameraView('front')" class="cam-btn px-3.5 py-1.5 rounded-full text-xs font-medium text-zinc-300 hover:text-white transition" id="view-front">
-              Fronte Ottiche + LiDAR
-            </button>
-            <button onclick="setCameraView('back')" class="cam-btn px-3.5 py-1.5 rounded-full text-xs font-medium text-zinc-300 hover:text-white transition" id="view-back">
-              Retro Schermo OLED
-            </button>
-            <button onclick="setCameraView('bottom')" class="cam-btn px-3.5 py-1.5 rounded-full text-xs font-medium text-zinc-300 hover:text-white transition" id="view-bottom">
-              Sotto Dual USB-C (PD + SSD)
-            </button>
-            <button onclick="setCameraView('top')" class="cam-btn px-3.5 py-1.5 rounded-full text-xs font-medium text-zinc-300 hover:text-white transition" id="view-top">
-              Lato Tasti & REC Rosso
-            </button>
+            <button onclick="setCameraView('hero')" class="cam-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white text-black transition" id="view-hero">3/4 Hero</button>
+            <button onclick="setCameraView('front')" class="cam-btn px-3.5 py-1.5 rounded-full text-xs font-medium text-zinc-300 hover:text-white transition" id="view-front">Fronte Ottiche + LiDAR</button>
+            <button onclick="setCameraView('back')" class="cam-btn px-3.5 py-1.5 rounded-full text-xs font-medium text-zinc-300 hover:text-white transition" id="view-back">Retro Schermo OLED</button>
+            <button onclick="setCameraView('bottom')" class="cam-btn px-3.5 py-1.5 rounded-full text-xs font-medium text-zinc-300 hover:text-white transition" id="view-bottom">Sotto Dual USB-C</button>
+            <button onclick="setCameraView('top')" class="cam-btn px-3.5 py-1.5 rounded-full text-xs font-medium text-zinc-300 hover:text-white transition" id="view-top">Tasti Volume Slim & REC</button>
           </div>
         </div>
-
-      </div>
-    </div>
-
-    <!-- Bottom Quick-Spec Bar -->
-    <div class="relative z-10 max-w-6xl mx-auto w-full px-6 grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-      <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10">
-        <div class="text-xs font-mono text-zinc-400">DIMENSIONI</div>
-        <div class="text-lg font-bold text-white mt-0.5">46.2 × 30.8 mm</div>
-        <div class="text-xs text-zinc-500">Impronta plateau iPhone 17 Pro</div>
-      </div>
-      <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10">
-        <div class="text-xs font-mono text-zinc-400">SPESSORE</div>
-        <div class="text-lg font-bold text-white mt-0.5">5.89 mm</div>
-        <div class="text-xs text-zinc-500">Scocca unibody in Titanio Gr.5</div>
-      </div>
-      <div class="p-4 rounded-2xl bg-white/[0.03] border border-[#DC201C]/40">
-        <div class="text-xs font-mono text-[#DC201C]">DOPPIA USB-C (V3)</div>
-        <div class="text-lg font-bold text-white mt-0.5">Interasse 14.4 mm</div>
-        <div class="text-xs text-zinc-500">Carica PD + SSD ProRes simultanei</div>
-      </div>
-      <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10">
-        <div class="text-xs font-mono text-zinc-400">DISPLAY POSTERIORE</div>
-        <div class="text-lg font-bold text-white mt-0.5">OLED 41.2 × 25.8</div>
-        <div class="text-xs text-zinc-500">iOS Camera Mini Action UI</div>
       </div>
     </div>
   </section>
 
-  <!-- BENTO GRID: HARDWARE DETAILS (APPLE STYLE) -->
-  <section id="specifiche" class="py-20 bg-[#101216] border-t border-white/10">
-    <div class="max-w-6xl mx-auto px-6 space-y-10">
+  <!-- SECTION 2: INTERACTIVE 3D DISASSEMBLABLE STACK (7 LEVELS L1 -> L7) -->
+  <section id="esploso-3d" class="py-20 bg-[#101216] border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-6 space-y-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div class="space-y-1">
+          <div class="text-xs font-mono text-[#DC201C] uppercase tracking-wider">Esploso Interattivo a 7 Strati</div>
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">Smonta e ispeziona ogni componente 3D.</h2>
+          <p class="text-sm text-zinc-400">
+            Muovi lo slider per aprire i 7 strati verticali nell'esatto ordine di assemblaggio, ruota la vista 3D col mouse e clicca su ciascun livello per vedere cosa contiene e cosa cercare per acquistarlo.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        <!-- 3D Disassembly Canvas (7 cols) -->
+        <div class="lg:col-span-7 rounded-3xl bg-[#0B0C0F] border border-white/10 p-5 flex flex-col justify-between">
+          <div class="flex items-center justify-between text-xs font-mono text-zinc-400">
+            <span>TRASCINA COL MOUSE PER RUOTARE L'ESPLOSO 3D</span>
+            <span id="exp-readout" class="text-[#DC201C] font-bold">APERTURA ESPLOSO: 65%</span>
+          </div>
+
+          <canvas id="explodeCanvas" width="600" height="360" class="w-full h-[340px] cursor-grab active:cursor-grabbing my-2"></canvas>
+
+          <div class="flex items-center gap-4 pt-3 border-t border-white/10 font-mono text-xs">
+            <span class="text-zinc-400">CHIUSO (0%)</span>
+            <input id="exp-slider" type="range" min="0" max="100" value="65" oninput="updateExplodePage(this.value)" class="w-full accent-[#DC201C] cursor-pointer" />
+            <span class="text-white">ESPLOSO (100%)</span>
+            <button onclick="resetExplodeView()" class="px-3 py-1 rounded-full bg-white/10 hover:bg-[#DC201C] text-white text-xs transition shrink-0">Reset 3D</button>
+          </div>
+        </div>
+
+        <!-- Layer Inspector & Buy Card (5 cols) -->
+        <div class="lg:col-span-5 rounded-3xl bg-[#16181E] border border-white/10 p-6 flex flex-col justify-between space-y-4">
+          <div class="space-y-4">
+            <div class="text-xs font-mono text-zinc-400 uppercase">Seleziona lo strato da ispezionare (L1 Retro → L7 Fronte):</div>
+            <div class="grid grid-cols-7 gap-1.5" id="exp-pills"></div>
+            <div id="exp-detail" class="space-y-3 pt-2"></div>
+          </div>
+          <div class="p-4 rounded-2xl bg-black/40 border border-white/10 flex items-center justify-between font-mono text-xs">
+            <span class="text-zinc-400">SPESSORE TOTALE SCOCCA:</span>
+            <span class="text-white font-bold">10.63 mm (+1.93 mm Plateau)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: COMPLETE SHOPPING LIST WITH SEARCH QUERIES & LINKS -->
+  <section id="shopping-list" class="py-20 bg-[#090A0C] border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-6 space-y-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div class="space-y-1">
+          <div class="text-xs font-mono text-[#DC201C] uppercase tracking-wider">Shopping List & Sourcing Guide</div>
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">Tutto quello che devi comprare (e cosa cercare).</h2>
+          <p class="text-sm text-zinc-400">
+            Per ogni pezzo trovi la <strong class="text-white">stringa di ricerca esatta</strong> da copiare su AliExpress / eBay / Subito, il prezzo reale e il link diretto alla ricerca.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 font-mono text-xs">
+          <button onclick="filterPageShop('all')" id="pflt-all" class="px-3.5 py-1.5 rounded-full bg-[#DC201C] text-white font-bold">Tutti i Pezzi (9)</button>
+          <button onclick="filterPageShop('apple')" id="pflt-apple" class="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-zinc-300 hover:text-white">Ricambi Originali iPhone</button>
+          <button onclick="filterPageShop('custom')" id="pflt-custom" class="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-zinc-300 hover:text-white">Display, LiPo & Dual USB-C</button>
+        </div>
+      </div>
+
+      <!-- Highlight Strategy Box: Why buying a broken Donor iPhone is best -->
+      <div class="p-6 rounded-3xl bg-gradient-to-r from-[#DC201C]/20 via-[#16181E] to-[#16181E] border border-[#DC201C]/50 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="space-y-1.5">
+          <div class="inline-flex items-center gap-2 font-mono text-xs font-bold text-[#DC201C]">
+            <span>★ STRATEGIA CONSIGLIATA ("DONOR PHONE") — RISPARMI ~70 € E ZERO PROBLEMI DI PAIRING APPLE</span>
+          </div>
+          <h3 class="text-xl font-bold text-white">Compra un iPhone 15 Pro / 16 Pro USA (eSIM) con schermo/scocca rotti o FaceID guasto (~110 – 145 €)</h3>
+          <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+            Se compri scheda madre e fotocamere separate su AliExpress, iOS potrebbe mostrare l'avviso <em>"Componente sconosciuto"</em> o disattivare il LiDAR. Comprando su <strong>eBay / Subito / Vinted</strong> un iPhone Pro caduto (con vetro rotto o FaceID non funzionante, ma <strong>iCloud sbloccato</strong>), estrai dal telefono: <strong>Scheda Madre (63.8 mm) + Blocco 3 Fotocamere 48MP + LiDAR + Flash + Earpiece + Flat USB-C + Viti Pentalobo</strong> già accoppiati in fabbrica da Apple!
+          </p>
+        </div>
+        <a href="https://www.ebay.it/sch/i.html?_nkw=iphone+15+pro+no+face+id+working" target="_blank" class="shrink-0 px-5 py-3 rounded-full bg-[#DC201C] hover:bg-[#b81916] text-white font-mono text-xs font-bold transition">
+          Cerca iPhone Donatore su eBay ↗
+        </a>
+      </div>
+
+      <!-- Parts Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="page-shop-grid"></div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: STEP-BY-STEP ASSEMBLY & ANTI-REBOOT WIRING MANUAL -->
+  <section id="guida-assemblaggio" class="py-20 bg-[#101216] border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-6 space-y-8">
       <div class="max-w-2xl space-y-2">
-        <div class="text-xs font-mono text-[#DC201C] uppercase tracking-wider">Ingegneria & Ergonomia</div>
-        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">Progettata attorno ai veri componenti iPhone.</h2>
+        <div class="text-xs font-mono text-[#DC201C] uppercase tracking-wider">Manuale di Montaggio // 6 Step Operativi</div>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">Come assemblarla passo dopo passo.</h2>
         <p class="text-sm text-zinc-400">
-          Ogni quota del modello 3D riprende gli interassi originali Apple per accogliere i moduli di ricambio acquistati su AliExpress senza modifiche alle ottiche.
+          Dalla preparazione software di iOS prima dello smontaggio fino al collegamento del tasto REC rosso e dei 3 sensori termici anti-riavvio.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-        <!-- Card 1: Dual USB-C -->
-        <div class="md:col-span-2 p-7 rounded-3xl bg-[#16181E] border border-white/10 flex flex-col justify-between space-y-6">
-          <div class="space-y-2">
-            <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-[#DC201C]/15 text-[#DC201C] border border-[#DC201C]/30">
-              ESCLUSIVA VERSIONE 3
-            </span>
-            <h3 class="text-2xl font-bold text-white pt-1">Doppia Porta USB-C inferiore spaziata per i veri connettori.</h3>
-            <p class="text-sm text-zinc-400 leading-relaxed">
-              Considerando che il guscio dei terminali USB-C (overmold) misura <strong class="text-white">11.0 – 12.4 mm</strong> di larghezza, le due porte sono posizionate sul lato lungo inferiore con un <strong class="text-white">interasse centro-centro di 14.40 mm</strong> (`8.54 mm` netti tra le ghiere). Due cavi ad alta velocità (Power Bank PD + SSD NVMe) si inseriscono affiancati mantenendo <strong class="text-white">2.4 mm di luce libera</strong>.
-            </p>
-          </div>
-          <div class="grid grid-cols-3 gap-3 pt-2 font-mono text-xs">
-            <div class="p-3 rounded-xl bg-black/40 border border-white/10">
-              <div class="text-zinc-500">PORTA 1 (SX)</div>
-              <div class="text-white font-bold mt-0.5">USB-C PD 27W</div>
-            </div>
-            <div class="p-3 rounded-xl bg-black/40 border border-white/10">
-              <div class="text-zinc-500">PORTA 2 (DX)</div>
-              <div class="text-white font-bold mt-0.5">USB 3.2 10Gbps SSD</div>
-            </div>
-            <div class="p-3 rounded-xl bg-black/40 border border-white/10">
-              <div class="text-zinc-500">CHIUSURA</div>
-              <div class="text-white font-bold mt-0.5">2× Viti Pentalobo</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 2: Red REC & Volume Buttons -->
-        <div class="p-7 rounded-3xl bg-[#16181E] border border-white/10 flex flex-col justify-between space-y-6">
-          <div class="space-y-2">
-            <span class="text-xs font-mono text-zinc-400">CONTROLLI TATTILI</span>
-            <h3 class="text-xl font-bold text-white">Tasto REC Rosso & Tasti Volume stile iPhone.</h3>
-            <p class="text-sm text-zinc-400 leading-relaxed">
-              I tasti Volume (`6.80 × 2.77 mm`) sul lato corto destro e il tasto <strong class="text-[#DC201C]">REC Rosso anodizzato</strong> (`9.60 mm`) in alto riprendono il profilo a capsula con doppio smusso del tasto d'accensione iPhone.
-            </p>
-          </div>
-          <div class="p-4 rounded-2xl bg-black/40 border border-white/10 flex items-center justify-between">
-            <span class="text-xs font-mono text-zinc-400">CORSA DOME SWITCH</span>
-            <span class="text-sm font-mono font-bold text-[#DC201C]">0.83 mm</span>
-          </div>
-        </div>
-      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="page-guide-grid"></div>
     </div>
   </section>
 
-  <!-- 10-SLIDE HARDWARE KEYNOTE PRESENTATION DECK -->
+  <!-- SECTION 5: 10-SLIDE HARDWARE KEYNOTE PRESENTATION -->
   <section id="keynote-10" class="py-20 bg-[#090A0C] border-t border-white/10">
     <div class="max-w-6xl mx-auto px-6 space-y-8">
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
-          <div class="text-xs font-mono text-[#DC201C] uppercase tracking-wider">Presentazione Ufficiale // 10 Slide</div>
-          <h2 class="text-3xl font-bold tracking-tight text-white mt-1">Keynote Progetto & Piano di Prototipazione</h2>
+          <div class="text-xs font-mono text-[#DC201C] uppercase tracking-wider">Presentazione Progetto // 10 Slide</div>
+          <h2 class="text-3xl font-bold tracking-tight text-white mt-1">Keynote Deck & Piano di Prototipazione</h2>
         </div>
         <div class="flex items-center gap-2">
-          <button onclick="changeSlide(-1)" id="prev-btn" class="px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 text-xs font-mono text-white transition">
-            ← Precedente
-          </button>
+          <button onclick="changeSlide(-1)" class="px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 text-xs font-mono text-white transition">← Precedente</button>
           <span id="slide-counter" class="px-3 py-2 font-mono text-xs text-zinc-400">01 / 10</span>
-          <button onclick="changeSlide(1)" id="next-btn" class="px-4 py-2 rounded-full bg-[#DC201C] hover:bg-[#b81916] text-xs font-mono font-semibold text-white transition">
-            Successiva →
-          </button>
+          <button onclick="changeSlide(1)" class="px-4 py-2 rounded-full bg-[#DC201C] hover:bg-[#b81916] text-xs font-mono font-semibold text-white transition">Successiva →</button>
         </div>
       </div>
 
-      <!-- Slide Dots -->
       <div id="slide-dots" class="flex items-center gap-1.5"></div>
-
-      <!-- Slide Container (Light background for content slides 2-9, Dark for Cover 1 & Closing 10) -->
-      <div id="slide-box" class="rounded-3xl border transition-all duration-300 min-h-[360px] p-8 sm:p-10 flex flex-col justify-between"></div>
-    </div>
-  </section>
-
-  <!-- BOM & ALIEXPRESS PARTS-BIN QUICK REFERENCE -->
-  <section id="bom-aliexpress" class="py-16 bg-[#101216] border-t border-white/10">
-    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
-      <div class="space-y-1">
-        <div class="text-xs font-mono text-[#DC201C]">GITHUB PAGES READY</div>
-        <h3 class="text-xl font-bold text-white">Pronto per la pubblicazione su GitHub</h3>
-        <p class="text-xs text-zinc-400">
-          Carica <code class="text-zinc-200 bg-white/10 px-1.5 py-0.5 rounded">index.html</code> e <code class="text-zinc-200 bg-white/10 px-1.5 py-0.5 rounded">iphone17pro_mini_v3.glb</code> nella stessa cartella del tuo repository GitHub e attiva GitHub Pages.
-        </p>
-      </div>
-      <a href="#studio-3d" class="shrink-0 px-5 py-2.5 rounded-full bg-white text-black text-xs font-semibold hover:bg-zinc-200 transition">
-        Torna allo Studio 3D ↑
-      </a>
+      <div id="slide-box" class="rounded-3xl border transition-all duration-300 min-h-[340px] p-8 sm:p-10 flex flex-col justify-between"></div>
     </div>
   </section>
 
   <script>
+    // =========================================================================
+    // 1. <model-viewer> GLB CONTROLS
+    // =========================================================================
     const viewer = document.getElementById('cam-viewer');
     let hotspotsVisible = true;
     let autoRotateOn = true;
 
-    // Detect if opened via file:// protocol and GLB fetch fails due to browser CORS policy
     viewer.addEventListener('error', () => {
       document.getElementById('cors-fallback').classList.remove('hidden');
     });
 
-    // Allow manual file picker loading of any .glb file (also works offline on file://)
     document.getElementById('glb-upload').addEventListener('change', (e) => {
       const file = e.target.files[0];
       if (file) {
-        const url = URL.createObjectURL(file);
-        viewer.src = url;
+        viewer.src = URL.createObjectURL(file);
         document.getElementById('cors-fallback').classList.add('hidden');
       }
     });
@@ -353,33 +316,26 @@
       viewer.autoRotate = false;
       autoRotateOn = false;
       document.getElementById('btn-rotate').textContent = 'Rotazione: OFF';
-
       const views = {
         hero:   { orbit: '35deg 78deg 0.85m',  target: '0m 0m 0m' },
         front:  { orbit: '0deg 90deg 0.82m',   target: '0m 0m 0m' },
         back:   { orbit: '180deg 90deg 0.82m', target: '0m 0m 0m' },
         bottom: { orbit: '180deg 152deg 0.78m',target: '0m -0.04m 0m' },
-        top:    { orbit: '-35deg 35deg 0.82m', target: '0m 0.04m 0m' }
+        top:    { orbit: '-55deg 55deg 0.78m', target: '0m 0.02m 0m' }
       };
-
       const v = views[preset] || views.hero;
       viewer.cameraOrbit = v.orbit;
       viewer.cameraTarget = v.target;
-
       document.querySelectorAll('.cam-btn').forEach(btn => {
         btn.className = 'cam-btn px-3.5 py-1.5 rounded-full text-xs font-medium text-zinc-300 hover:text-white transition';
       });
       const activeBtn = document.getElementById('view-' + preset);
-      if (activeBtn) {
-        activeBtn.className = 'cam-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white text-black transition';
-      }
+      if (activeBtn) activeBtn.className = 'cam-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white text-black transition';
     }
 
     function toggleHotspots() {
       hotspotsVisible = !hotspotsVisible;
-      document.querySelectorAll('.hotspot').forEach(h => {
-        h.style.display = hotspotsVisible ? 'flex' : 'none';
-      });
+      document.querySelectorAll('.hotspot').forEach(h => { h.style.display = hotspotsVisible ? 'flex' : 'none'; });
       document.getElementById('btn-hotspots').textContent = 'Hotspot: ' + (hotspotsVisible ? 'ON' : 'OFF');
     }
 
@@ -389,270 +345,457 @@
       document.getElementById('btn-rotate').textContent = 'Rotazione: ' + (autoRotateOn ? 'ON' : 'OFF');
     }
 
-    // 10-SLIDE KEYNOTE PRESENTATION DATA
+    // =========================================================================
+    // 2. INTERACTIVE 3D DISASSEMBLABLE STACK (7 LEVELS L1..L7)
+    // =========================================================================
+    const expLayers = [
+      {
+        id: 1, code: "L1", name: "Display OLED 2.87'' + Cornice & 2× Viti Pentalobo",
+        zBase: -36, dims: "61.7 × 38.7 mm (Cornice 64.7 × 41.7 mm)", price: "25 – 32 €",
+        search: "2.8 inch IPS USB-C portable touch screen monitor module",
+        desc: "Chiude il retro della scocca a sandwich. Riceve il video live dall'uscita USB-C DisplayPort interna della scheda madre iPhone ed è bloccato dalle 2 viti pentalobo inferiori.",
+        url: "https://www.aliexpress.com/w/wholesale-2.8-inch-usb-c-touch-screen-monitor.html"
+      },
+      {
+        id: 2, code: "L2", name: "Batteria LiPo Pouch 2100mAh + BMS Originale + Antenne",
+        zBase: -22, dims: "55.0 × 32.5 × 2.20 mm (~2100 mAh)", price: "12 – 18 €",
+        search: "3.85V high density LiPo battery 223355 2000mAh + iPhone 15 Pro BMS",
+        desc: "Alloggiata nello strato posteriore (Z: 18.1→20.3 mm). Saldata alla schedina BMS originale iPhone per far leggere a iOS la percentuale batteria reale, affiancata dalle 2 micro-antenne Wi-Fi/BT per AirDrop.",
+        url: "https://www.aliexpress.com/w/wholesale-3.85v-lipo-battery-2000mah.html"
+      },
+      {
+        id: 3, code: "L3", name: "Scheda Madre Originale iPhone Pro (63.8mm) + Dual USB-C",
+        zBase: -8, dims: "63.8 × 20.2 × 2.05 mm + Mezzanino 4× B2B", price: "95 – 130 €",
+        search: "iPhone 15 Pro unlocked motherboard clean iCloud US version eSIM",
+        desc: "Vera scheda madre sandwich iPhone Pro (modello USA eSIM senza slot SIM fisico) posizionata nel piano centrale (Z: 20.6→22.7 mm) sotto la base delle fotocamere, collegata al modulo Doppia USB-C (PD + SSD).",
+        url: "https://www.aliexpress.com/w/wholesale-iphone-15-pro-unlocked-motherboard.html"
+      },
+      {
+        id: 4, code: "L4", name: "Blocco 3 Fotocamere 48MP + LiDAR + Flash + Earpiece",
+        zBase: 6, dims: "36.7 × 38.1 × 4.65 mm + LiDAR 8.1 × 8.7 mm", price: "65 – 85 € (o 0€ da Donor)",
+        search: "iPhone 15 Pro OEM rear camera replacement + LiDAR + earpiece flex",
+        desc: "Comparto ottico originale Apple (Main 48MP OIS, UltraWide, Tele 5× Tetraprism) + Scanner LiDAR + Flash True Tone + micro-speaker Earpiece col sensore termico anti-riavvio.",
+        url: "https://www.aliexpress.com/w/wholesale-iphone-15-pro-original-rear-camera-lidar.html"
+      },
+      {
+        id: 5, code: "L5", name: "Scocca Unibody Titanio 1:1 + Tasto REC Rosso + 2× Vol Slim",
+        zBase: 20, dims: "71.50 × 48.45 × 10.63 mm (Parete 0.90 mm)", price: "15 € (SLA) / 55 € (CNC)",
+        search: "JLCPCB / PCBWay CNC Aluminum Titanium Anodized / SLA 3D Printing",
+        desc: "Scocca custom avente la larghezza esatta di un iPhone Pro reale (71.50 mm). Ospita in alto il Tasto REC Rosso anodizzato (collegato a Volume+ per avviare i video su iOS) e sul bordo corto destro i 2 tasti Volume sottili.",
+        url: "https://jlcpcb.com/3d-printing"
+      },
+      {
+        id: 6, code: "L6", name: "Plateau Superiore in Vetro Fumè Fresato",
+        zBase: 34, dims: "65.99 × 42.95 × 1.93 mm", price: "8 – 12 €",
+        search: "iPhone 15 Pro rear back glass camera plateau replacement",
+        desc: "Plateau superiore con le 3 aperture circolari Ø 17.49 mm per i barilotti delle lenti, il foro per il Flash True Tone, il microfono posteriore e lo scanner LiDAR.",
+        url: "https://www.aliexpress.com/w/wholesale-iphone-15-pro-camera-glass-frame.html"
+      },
+      {
+        id: 7, code: "L7", name: "3× Anelli Lenti Ø17.5mm + Vetrini Zaffiro AR + Lente Flash",
+        zBase: 48, dims: "3× Ø 17.49 mm + Finestra LiDAR + Lente True Tone", price: "6 – 10 €",
+        search: "iPhone 15 Pro sapphire camera lens glass ring replacement kit",
+        desc: "Anelli esterni in titanio con cristallo di zaffiro antiriflesso di ricambio iPhone Pro, lente fresnel del Flash LED e vetrino IR dello scanner LiDAR.",
+        url: "https://www.aliexpress.com/w/wholesale-iphone-15-pro-camera-lens-glass-ring.html"
+      }
+    ];
+
+    let selExpLayer = 3;
+    let expFactor = 0.65;
+    let eRotX = -0.46, eRotY = 0.56;
+    let eDrag = false, eLastX = 0, eLastY = 0;
+
+    const eCanvas = document.getElementById('explodeCanvas');
+    const eCtx = eCanvas.getContext('2d');
+
+    eCanvas.addEventListener('mousedown', (e) => { eDrag = true; eLastX = e.clientX; eLastY = e.clientY; });
+    window.addEventListener('mousemove', (e) => {
+      if (!eDrag) return;
+      eRotY += (e.clientX - eLastX) * 0.012;
+      eRotX = Math.max(-1.35, Math.min(0.25, eRotX + (e.clientY - eLastY) * 0.012));
+      eLastX = e.clientX; eLastY = e.clientY;
+      drawExplode3D();
+    });
+    window.addEventListener('mouseup', () => { eDrag = false; });
+
+    function resetExplodeView() {
+      eRotX = -0.46; eRotY = 0.56; expFactor = 0.65;
+      document.getElementById('exp-slider').value = 65;
+      document.getElementById('exp-readout').textContent = 'APERTURA ESPLOSO: 65%';
+      drawExplode3D();
+    }
+
+    function updateExplodePage(val) {
+      expFactor = val / 100.0;
+      document.getElementById('exp-readout').textContent = 'APERTURA ESPLOSO: ' + val + '%';
+      drawExplode3D();
+    }
+
+    function projExp(x, y, z) {
+      const cY = Math.cos(eRotY), sY = Math.sin(eRotY);
+      const x1 = x * cY - z * sY, z1 = x * sY + z * cY;
+      const cX = Math.cos(eRotX), sX = Math.sin(eRotX);
+      const y2 = y * cX - z1 * sX, z2 = y * sX + z1 * cX;
+      const sc = 2.95;
+      return { px: eCanvas.width * 0.45 + x1 * sc, py: eCanvas.height * 0.52 + y2 * sc, depth: z2 };
+    }
+
+    function drawExpBox(cx, cy, cz, wx, wy, wz, fillHex, strokeHex, alpha = 0.9, isSel = false) {
+      const hw = wx / 2, hy = wy / 2, hz = wz / 2;
+      const pts = [
+        projExp(cx - hw, cy - hy, cz - hz), projExp(cx + hw, cy - hy, cz - hz),
+        projExp(cx + hw, cy - hy, cz + hz), projExp(cx - hw, cy - hy, cz + hz),
+        projExp(cx - hw, cy + hy, cz - hz), projExp(cx + hw, cy + hy, cz - hz),
+        projExp(cx + hw, cy + hy, cz + hz), projExp(cx - hw, cy + hy, cz + hz)
+      ];
+      const faces = [[0,1,2,3],[4,5,6,7],[0,1,5,4],[2,3,7,6],[1,2,6,5],[0,3,7,4]];
+      faces.sort((a, b) => {
+        const da = (pts[a[0]].depth + pts[a[1]].depth + pts[a[2]].depth + pts[a[3]].depth) / 4;
+        const db = (pts[b[0]].depth + pts[b[1]].depth + pts[b[2]].depth + pts[b[3]].depth) / 4;
+        return da - db;
+      });
+      eCtx.save();
+      eCtx.globalAlpha = alpha;
+      faces.forEach(f => {
+        eCtx.beginPath();
+        eCtx.moveTo(pts[f[0]].px, pts[f[0]].py);
+        eCtx.lineTo(pts[f[1]].px, pts[f[1]].py);
+        eCtx.lineTo(pts[f[2]].px, pts[f[2]].py);
+        eCtx.lineTo(pts[f[3]].px, pts[f[3]].py);
+        eCtx.closePath();
+        eCtx.fillStyle = fillHex;
+        eCtx.fill();
+        eCtx.lineWidth = isSel ? 2.0 : 0.9;
+        eCtx.strokeStyle = isSel ? '#FFFFFF' : strokeHex;
+        eCtx.stroke();
+      });
+      eCtx.restore();
+      return projExp(cx + hw + 6, cy, cz);
+    }
+
+    function drawExplode3D() {
+      eCtx.clearRect(0, 0, eCanvas.width, eCanvas.height);
+      const tAx = projExp(0, -68, 0), bAx = projExp(0, 68, 0);
+      eCtx.save();
+      eCtx.setLineDash([4, 4]);
+      eCtx.strokeStyle = '#3F3F46';
+      eCtx.beginPath(); eCtx.moveTo(tAx.px, tAx.py); eCtx.lineTo(bAx.px, bAx.py); eCtx.stroke();
+      eCtx.restore();
+
+      expLayers.forEach(l => {
+        const yPos = -l.zBase * (0.14 + expFactor * 0.95);
+        const isSel = l.id === selExpLayer;
+        const alpha = isSel ? 0.98 : 0.68;
+        let lbl;
+        if (l.id === 1) {
+          lbl = drawExpBox(0, yPos, 0, 64, 2.2, 41, '#0F172A', '#38BDF8', alpha, isSel);
+          drawExpBox(-22, yPos + 1.5, 21, 3, 2, 3, '#E4E4E7', '#FFF', alpha, false);
+          drawExpBox(22, yPos + 1.5, 21, 3, 2, 3, '#E4E4E7', '#FFF', alpha, false);
+        } else if (l.id === 2) {
+          lbl = drawExpBox(-2, yPos, 0, 55, 3.5, 32.5, '#1D4ED8', '#60A5FA', alpha, isSel);
+          drawExpBox(-2, yPos, -18, 46, 3.0, 2.5, '#D99B26', '#FDE047', alpha, false);
+        } else if (l.id === 3) {
+          lbl = drawExpBox(0, yPos, -3, 63.8, 3.2, 20.2, '#15803D', '#4ADE80', alpha, isSel);
+          drawExpBox(18, yPos - 2, 2, 19.5, 3.5, 29.5, '#166534', '#4ADE80', alpha, isSel);
+          drawExpBox(-10.8, yPos, 20, 8.8, 3.4, 5.5, '#D99B26', '#FDE047', alpha, false);
+          drawExpBox(10.8, yPos, 20, 8.8, 3.4, 5.5, '#D99B26', '#FDE047', alpha, false);
+        } else if (l.id === 4) {
+          lbl = drawExpBox(-11, yPos, 0, 36.7, 5.2, 38.0, '#475569', '#94A3B8', alpha, isSel);
+          drawExpBox(21, yPos, 10, 8.1, 3.5, 8.7, '#3B2848', '#C084FC', alpha, false);
+          drawExpBox(21, yPos, -10, 7.5, 3.2, 7.5, '#FEF08A', '#FFF', alpha, false);
+          drawExpBox(35, yPos, -6, 2.2, 2.8, 8.0, '#EA580C', '#FDBA74', alpha, false);
+          drawExpBox(35, yPos, 6, 2.2, 2.8, 8.0, '#EA580C', '#FDBA74', alpha, false);
+        } else if (l.id === 5) {
+          lbl = drawExpBox(0, yPos, 0, 71.5, 8.5, 48.5, '#57534E', '#A8A29E', isSel ? 0.85 : 0.42, isSel);
+          drawExpBox(14, yPos, -25, 13.5, 2.8, 2.2, '#DC201C', '#FCA5A5', 0.98, isSel);
+          drawExpBox(36.5, yPos, -6, 1.5, 2.4, 9.5, '#A8A29E', '#FFF', 0.95, false);
+          drawExpBox(36.5, yPos, 6, 1.5, 2.4, 9.5, '#A8A29E', '#FFF', 0.95, false);
+        } else if (l.id === 6) {
+          lbl = drawExpBox(0, yPos, 0, 66.0, 2.4, 43.0, '#334155', '#94A3B8', alpha, isSel);
+        } else if (l.id === 7) {
+          drawExpBox(-19, yPos, -10, 17.5, 2.4, 17.5, '#1E293B', '#38BDF8', alpha, isSel);
+          drawExpBox(-19, yPos, 10, 17.5, 2.4, 17.5, '#1E293B', '#38BDF8', alpha, isSel);
+          drawExpBox(0, yPos, 0, 17.5, 2.4, 17.5, '#1E293B', '#38BDF8', alpha, isSel);
+          lbl = drawExpBox(21, yPos, -10, 7.2, 1.8, 7.2, '#FEF08A', '#FFF', alpha, isSel);
+        }
+        if (lbl) {
+          eCtx.save();
+          eCtx.font = isSel ? 'bold 12px monospace' : '11px monospace';
+          eCtx.fillStyle = isSel ? '#DC201C' : '#A1A1AA';
+          eCtx.fillText(l.code + ' — ' + l.name.split('+')[0].trim(), lbl.px + 8, lbl.py + 4);
+          eCtx.restore();
+        }
+      });
+    }
+
+    function selectExpLayer(id) {
+      selExpLayer = id;
+      renderExpInspector();
+      drawExplode3D();
+    }
+
+    function renderExpInspector() {
+      document.getElementById('exp-pills').innerHTML = expLayers.map(l => `
+        <button onclick="selectExpLayer(${l.id})" class="py-2 rounded-xl font-mono text-xs font-bold transition border ${
+          l.id === selExpLayer
+            ? 'bg-[#DC201C] text-white border-[#DC201C]'
+            : 'bg-black/40 text-zinc-400 border-white/10 hover:text-white'
+        }">${l.code}</button>
+      `).join('');
+
+      const l = expLayers.find(x => x.id === selExpLayer);
+      document.getElementById('exp-detail').innerHTML = `
+        <div class="p-5 rounded-2xl bg-black/40 border border-white/10 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-xs font-bold px-2.5 py-0.5 rounded-full bg-[#DC201C]/20 text-[#DC201C]">${l.code} // ${l.price}</span>
+            <span class="font-mono text-xs text-zinc-400">${l.dims}</span>
+          </div>
+          <h3 class="text-lg font-bold text-white">${l.name}</h3>
+          <p class="text-xs text-zinc-300 leading-relaxed">${l.desc}</p>
+          <div class="pt-2 space-y-1.5">
+            <div class="text-[11px] font-mono text-zinc-400 uppercase">Cosa cercare su AliExpress / eBay:</div>
+            <div class="p-2.5 rounded-xl bg-black/70 border border-white/10 flex items-center justify-between gap-2">
+              <code class="text-xs font-mono text-[#4ADE80] select-all truncate">${l.search}</code>
+              <a href="${l.url}" target="_blank" class="shrink-0 px-3 py-1 rounded-lg bg-[#DC201C] text-white font-mono text-xs font-bold hover:bg-[#b81916] transition">Cerca ↗</a>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // =========================================================================
+    // 3. SHOPPING LIST CARDS & ASSEMBLY GUIDE CARDS
+    // =========================================================================
+    const pageShopItems = [
+      {
+        cat: "apple", num: "01", name: "iPhone 15 Pro / 16 Pro USA (eSIM) Donatore",
+        price: "110 – 145 €", where: "eBay / Subito / Vinted",
+        query: "iPhone 15 Pro cracked glass no FaceID working motherboard US eSIM",
+        desc: "La scelta più furba: un iPhone Pro con vetro/display rotto o FaceID guasto (ma iCloud libero) ti fornisce Scheda Madre (63.8mm), 3 Fotocamere 48MP, LiDAR, Flash, Earpiece, Flat USB-C e Viti Pentalobo già accoppiati da Apple.",
+        link: "https://www.ebay.it/sch/i.html?_nkw=iphone+15+pro+no+face+id+working"
+      },
+      {
+        cat: "apple", num: "02", name: "Blocco Tripla Fotocamera 48MP + LiDAR OEM",
+        price: "65 – 85 €", where: "AliExpress",
+        query: "Original OEM Rear Camera Module for iPhone 15 Pro 16 Pro + LiDAR",
+        desc: "Se compri i pezzi singoli: blocco originale Main 48MP + UltraWide + Tele 5× + Scanner LiDAR ToF. Entra al centesimo nei 3 fori Ø 17.49 mm del plateau 1:1.",
+        link: "https://www.aliexpress.com/w/wholesale-iphone-15-pro-original-rear-camera-lidar.html"
+      },
+      {
+        cat: "apple", num: "03", name: "Scheda Madre iPhone Pro USA eSIM (63.8 mm)",
+        price: "95 – 130 €", where: "AliExpress",
+        query: "Unlocked Motherboard for iPhone 15 Pro Clean iCloud US Version eSIM",
+        desc: "La versione USA senza carrellino SIM fisico è lunga solo 63.8 mm ed entra orizzontalmente nel piano centrale (Z: 20.6→22.7 mm) della nostra scocca da 71.50 mm.",
+        link: "https://www.aliexpress.com/w/wholesale-iphone-15-pro-unlocked-motherboard.html"
+      },
+      {
+        cat: "apple", num: "04", name: "Kit 3 Flat Anti-Riavvio (USB-C + Flash/Power + Earpiece)",
+        price: "14 – 19 €", where: "AliExpress",
+        query: "iPhone 15 Pro charging port flex + power flash flex + earpiece speaker",
+        desc: "Indispensabile: fornisce i 3 sensori termici che iOS controlla ogni 3 minuti per non riavviarsi, oltre al Flash True Tone, al microfono posteriore e allo speaker audio.",
+        link: "https://www.aliexpress.com/w/wholesale-iphone-15-pro-power-flash-flex-original.html"
+      },
+      {
+        cat: "apple", num: "05", name: "Antenne Flessibili Wi-Fi / Bluetooth (per AirDrop)",
+        price: "4 – 6 €", where: "AliExpress",
+        query: "iPhone 15 Pro WiFi Bluetooth antenna flex cable replacement",
+        desc: "Due piccole antenne FPC da incollare sulla parete interna per trasferire i file 4K via AirDrop sul Mac/iPhone e usare l'Apple Watch come telecomando e mirino live.",
+        link: "https://www.aliexpress.com/w/wholesale-iphone-15-pro-wifi-bluetooth-antenna-flex.html"
+      },
+      {
+        cat: "custom", num: "06", name: "Mini Display Posteriore 2.8'' USB-C Video + Touch",
+        price: "25 – 32 €", where: "AliExpress",
+        query: "2.8 inch IPS USB-C portable monitor capacitive touch screen module",
+        desc: "Schermo 61.7 × 38.7 mm collegato internamente all'uscita video USB-C DisplayPort della scheda madre iPhone. Mostra Blackmagic Camera a tutto schermo in orizzontale.",
+        link: "https://www.aliexpress.com/w/wholesale-2.8-inch-type-c-touch-screen.html"
+      },
+      {
+        cat: "custom", num: "07", name: "Batteria LiPo Pouch 2100 mAh (55 × 32.5 × 2.2 mm)",
+        price: "10 – 14 €", where: "AliExpress",
+        query: "3.85V high voltage LiPo battery 223355 2000mAh pouch cell",
+        desc: "Va saldata alla striscia BMS di una batteria originale iPhone così iOS mostra la percentuale di carica reale senza messaggi di errore.",
+        link: "https://www.aliexpress.com/w/wholesale-3.85v-lipo-battery-2000mah.html"
+      },
+      {
+        cat: "custom", num: "08", name: "Splitter Interno Dual USB-C (PD 27W + USB 3.2 10Gbps)",
+        price: "9 – 14 €", where: "AliExpress",
+        query: "USB-C splitter PCB PD 100W charging + USB 3.1 10Gbps data module",
+        desc: "Permette alle due porte USB-C inferiori (interasse 21.58 mm) di alimentare l'iPhone e registrare contemporaneamente in ProRes 4K 120fps su SSD esterno.",
+        link: "https://www.aliexpress.com/w/wholesale-usb-c-pd-and-data-splitter-board.html"
+      },
+      {
+        cat: "custom", num: "09", name: "Anelli Lenti Zaffiro Ø17.5mm + Viti Pentalobo + Scocca CNC",
+        price: "20 – 65 €", where: "AliExpress + JLCPCB",
+        query: "iPhone 15 Pro camera lens ring glass replacement + bottom pentalobe screws",
+        desc: "3 anelli esterni in titanio con vetrini zaffiro antiriflesso, 2 viti pentalobo inferiori e stampa 3D SLA / fresatura CNC della scocca V3 progettata in Rhino.",
+        link: "https://www.aliexpress.com/w/wholesale-iphone-15-pro-camera-lens-glass-ring.html"
+      }
+    ];
+
+    function filterPageShop(cat) {
+      ['all', 'apple', 'custom'].forEach(c => {
+        const b = document.getElementById('pflt-' + c);
+        b.className = (c === cat)
+          ? 'px-3.5 py-1.5 rounded-full bg-[#DC201C] text-white font-bold'
+          : 'px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-zinc-300 hover:text-white';
+      });
+      const items = cat === 'all' ? pageShopItems : pageShopItems.filter(x => x.cat === cat);
+      document.getElementById('page-shop-grid').innerHTML = items.map(it => `
+        <div class="p-6 rounded-3xl bg-[#14161B] border border-white/10 flex flex-col justify-between space-y-4 hover:border-[#DC201C]/50 transition">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-xs font-bold px-2.5 py-0.5 rounded-full bg-[#DC201C]/20 text-[#DC201C]">#${it.num} // ${it.where}</span>
+              <span class="font-mono text-sm font-bold text-white">${it.price}</span>
+            </div>
+            <h3 class="text-base font-bold text-white pt-1">${it.name}</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed">${it.desc}</p>
+          </div>
+          <div class="space-y-2 pt-2 border-t border-white/10">
+            <div class="text-[10px] font-mono text-zinc-500 uppercase">Cosa cercare (Clicca per copiare):</div>
+            <code class="block p-2 rounded-xl bg-black/60 text-[11px] font-mono text-[#4ADE80] select-all">${it.query}</code>
+            <a href="${it.link}" target="_blank" class="block w-full text-center py-2 rounded-xl bg-white/10 hover:bg-[#DC201C] text-white font-mono text-xs font-semibold transition">
+              Cerca Pezzo Ora ↗
+            </a>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    const pageGuideSteps = [
+      {
+        step: "STEP 01", title: "Setup iOS Prima dello Smontaggio",
+        desc: "Prima di estrarre la scheda madre dall'iPhone donatore (o collegandola a uno schermo di servizio), disattiva il Codice di Blocco in Impostazioni, attiva AirDrop per Tutti, installa Blackmagic Camera e imposta un Comando Rapido iOS che apre automaticamente Blackmagic Camera all'avvio."
+      },
+      {
+        step: "STEP 02", title: "Tasti Fisici & Tasto REC Rosso = Volume+",
+        desc: "Inserisci dall'interno della scocca il Tasto REC Rosso superiore, i 2 Tasti Volume sottili a destra e il Tasto Power a sinistra. Collega i 2 contatti del dome-switch sotto il Tasto REC Rosso in parallelo al contatto Volume+ del flat originale: su iOS premere Volume+ avvia e ferma la registrazione video!"
+      },
+      {
+        step: "STEP 03", title: "Incollaggio Plateau, Lenti Zaffiro & Gruppo Camera",
+        desc: "Incolla il plateau in vetro fumè (66 × 43 mm) con i 3 anelli lenti Ø 17.49 mm sulla faccia anteriore. Cala dall'interno il blocco Tripla Fotocamera 48MP nella tasca sinistra (Z: 23.0→28.1 mm) e fissa a destra lo Scanner LiDAR, il Flash LED e il piccolo speaker Earpiece col sensore termico."
+      },
+      {
+        step: "STEP 04", title: "Innesto Scheda Madre (63.8mm) & Doppia USB-C",
+        desc: "Applica un pad termico da 0.5 mm sullo shield del processore A18/A19 Pro. Posiziona la scheda madre originale nel piano centrale (Z: 20.65→22.70 mm, sotto la base delle fotocamere), premi i 4 connettori B2B delle fotocamere/LiDAR sul mezzanino destro e fissa le 2 porte USB-C nelle asole inferiori."
+      },
+      {
+        step: "STEP 05", title: "Saldatura BMS Batteria 2100mAh & Antenne AirDrop",
+        desc: "Salda la striscia BMS originale della batteria iPhone ai poli della nuova cella LiPo Pouch da 2100 mAh (55 × 32.5 × 2.2 mm) così iOS legge la carica al 100%. Incolla le 2 antenne flex Wi-Fi/BT sulla parete interna e posiziona la batteria nello strato posteriore (Z: 18.15→20.35 mm)."
+      },
+      {
+        step: "STEP 06", title: "Chiusura Schermo Touch 2.87'' & 2 Viti Pentalobo",
+        desc: "Collega il cavo video/touch interno dal modulo USB-C DisplayPort allo schermo posteriore da 2.87'' (61.7 × 38.7 mm). Chiudi a filo la cornice posteriore Ceramic Shield (Z = 17.43 mm) e blocca tutto avvitando le 2 viti pentalobo inferiori ai lati della doppia porta USB-C."
+      }
+    ];
+
+    document.getElementById('page-guide-grid').innerHTML = pageGuideSteps.map(g => `
+      <div class="p-6 rounded-3xl bg-[#16181E] border border-white/10 space-y-2.5">
+        <div class="font-mono text-xs font-bold text-[#DC201C]">${g.step}</div>
+        <h3 class="text-lg font-bold text-white">${g.title}</h3>
+        <p class="text-xs text-zinc-400 leading-relaxed">${g.desc}</p>
+      </div>
+    `).join('');
+
+    // =========================================================================
+    // 4. 10-SLIDE KEYNOTE PRESENTATION
+    // =========================================================================
     let currentSlide = 0;
     const slides = [
       {
-        dark: true,
-        tag: "SLIDE 01 // COPERTINA",
-        title: "PRO-MINI 17 — Action Cam",
-        subtitle: "Ottica flagship iPhone. Spessore 5.89 mm. Doppia porta USB-C.",
-        body: `
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
-            <div class="p-5 rounded-2xl bg-white/5 border border-white/10">
-              <div class="font-mono text-xs text-zinc-400">FORM FACTOR</div>
-              <div class="text-2xl font-bold text-white mt-1">46.2 × 30.8 × 5.89 mm</div>
-              <p class="text-xs text-zinc-400 mt-1">Stesso spessore dello chassis di un iPhone, ridotto all'impronta del plateau ottico.</p>
-            </div>
-            <div class="p-5 rounded-2xl bg-white/5 border border-white/10">
-              <div class="font-mono text-xs text-zinc-400">ARCHITETTURA</div>
-              <div class="text-2xl font-bold text-white mt-1">Re-Housing OEM</div>
-              <p class="text-xs text-zinc-400 mt-1">Componentistica originale iPhone (AliExpress) integrata in un guscio custom in titanio.</p>
-            </div>
-            <div class="p-5 rounded-2xl bg-[#DC201C]/15 border border-[#DC201C]/50">
-              <div class="font-mono text-xs text-[#DC201C]">WORKFLOW PRO</div>
-              <div class="text-2xl font-bold text-white mt-1">Dual USB-C + OLED</div>
-              <p class="text-xs text-zinc-300 mt-1">Carica Power Delivery e registrazione su SSD esterno in contemporanea.</p>
-            </div>
-          </div>
-        `
+        dark: true, tag: "SLIDE 01 // COPERTINA", title: "PRO-MINI 17 — Action Cam 1:1",
+        subtitle: "La parte alta di iPhone 17 Pro (71.50 × 48.45 × 10.63 mm) trasformata in cinema-cam tascabile.",
+        body: `<div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
+          <div class="p-5 rounded-2xl bg-white/5 border border-white/10"><div class="font-mono text-xs text-zinc-400">SCALA REALE 1:1</div><div class="text-2xl font-bold text-white mt-1">71.5 × 48.5 × 10.6 mm</div><p class="text-xs text-zinc-400 mt-1">Entra al millimetro nella parte superiore di una cover per iPhone Pro.</p></div>
+          <div class="p-5 rounded-2xl bg-white/5 border border-white/10"><div class="font-mono text-xs text-zinc-400">CUORE ORIGINALE</div><div class="text-2xl font-bold text-white mt-1">Logic Board Apple</div><p class="text-xs text-zinc-400 mt-1">Vera scheda madre iPhone Pro (63.8mm) + 3 Fotocamere 48MP + LiDAR con iOS nativo.</p></div>
+          <div class="p-5 rounded-2xl bg-[#DC201C]/15 border border-[#DC201C]/50"><div class="font-mono text-xs text-[#DC201C]">PRO WORKFLOW</div><div class="text-2xl font-bold text-white mt-1">Dual USB-C + 2.87"</div><p class="text-xs text-zinc-300 mt-1">Doppia USB-C inferiore per carica PD + SSD ProRes e schermo touch posteriore.</p></div>
+        </div>`
       },
       {
-        dark: false,
-        tag: "SLIDE 02 // IL CONCEPT",
-        title: "Perché Costruirla",
-        subtitle: "La compattezza di una micro-GoPro unita al comparto ottico e computazionale di iPhone.",
-        body: `
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
-            <div class="p-5 rounded-2xl bg-white border border-zinc-200">
-              <div class="font-mono text-xs font-bold text-[#DC201C]">01 / COMPATTEZZA</div>
-              <div class="text-lg font-bold text-zinc-900 mt-1">1/4 di una GoPro</div>
-              <p class="text-xs text-zinc-600 mt-1">Sottile 5.89 mm: entra in qualsiasi tasca o mount magnetico senza sporgere.</p>
-            </div>
-            <div class="p-5 rounded-2xl bg-white border border-zinc-200">
-              <div class="font-mono text-xs font-bold text-[#DC201C]">02 / QUALITÀ OTTICA</div>
-              <div class="text-lg font-bold text-zinc-900 mt-1">Tripla Lente + LiDAR</div>
-              <p class="text-xs text-zinc-600 mt-1">Sensori 48MP con OIS sensor-shift, autofocus LiDAR al buio e ProRes 4K 120fps.</p>
-            </div>
-            <div class="p-5 rounded-2xl bg-white border border-zinc-200">
-              <div class="font-mono text-xs font-bold text-[#DC201C]">03 / COSTO CONTENUTO</div>
-              <div class="text-lg font-bold text-zinc-900 mt-1">Ricambi Standard</div>
-              <p class="text-xs text-zinc-600 mt-1">Nessun costo R&D ottico: si sfruttano i moduli di ricambio iPhone già sul mercato.</p>
-            </div>
-          </div>
-        `
+        dark: false, tag: "SLIDE 02 // IL CONCEPT", title: "Perché Costruirla",
+        subtitle: "Zero software da riscrivere: tutta la potenza video di un iPhone Pro in un quarto dello spazio.",
+        body: `<div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
+          <div class="p-5 rounded-2xl bg-white border border-zinc-200"><div class="font-mono text-xs font-bold text-[#DC201C]">01 / COMPATTEZZA</div><div class="text-lg font-bold text-zinc-900 mt-1">Solo la Testa dell'iPhone</div><p class="text-xs text-zinc-600 mt-1">Eliminando i 101 mm inferiori dello schermo verticale, resta una micro-camera tascabile da 71.5 × 48.5 mm.</p></div>
+          <div class="p-5 rounded-2xl bg-white border border-zinc-200"><div class="font-mono text-xs font-bold text-[#DC201C]">02 / iOS NATIVO</div><div class="text-lg font-bold text-zinc-900 mt-1">Action Mode & ProRes</div><p class="text-xs text-zinc-600 mt-1">Usando scheda madre e fotocamere originali hai stabilizzazione Apple, LiDAR AF, AirDrop e Blackmagic Camera.</p></div>
+          <div class="p-5 rounded-2xl bg-white border border-zinc-200"><div class="font-mono text-xs font-bold text-[#DC201C]">03 / LOW-COST</div><div class="text-lg font-bold text-zinc-900 mt-1">Ricambi / Donor Phone</div><p class="text-xs text-zinc-600 mt-1">Si recupera tutto da un iPhone Pro con schermo/FaceID rotto (~110€) + 60€ di accessori su AliExpress.</p></div>
+        </div>`
       },
       {
-        dark: false,
-        tag: "SLIDE 03 // DESIGN & SPECIFICHE CAD",
-        title: "Quote & Dettagli del Modello 3D",
-        subtitle: "Progettata in Rhino 8 con accoppiamenti millimetrici sui componenti Apple.",
-        body: `
-          <div class="overflow-x-auto pt-3">
-            <table class="w-full text-xs text-left border-collapse bg-white rounded-2xl overflow-hidden border border-zinc-200">
-              <thead class="bg-zinc-900 text-white font-mono">
-                <tr>
-                  <th class="py-2.5 px-4">ELEMENTO CAD</th>
-                  <th class="py-2.5 px-4">QUOTE REALI</th>
-                  <th class="py-2.5 px-4">MATERIALE & FUNZIONE</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-zinc-200 text-zinc-800">
-                <tr><td class="py-2 px-4 font-semibold">Scocca Unibody</td><td class="py-2 px-4 font-mono">46.17 × 30.79 × 5.89 mm</td><td class="py-2 px-4">Titanio sabbiato + 2 viti pentalobo + fori speaker</td></tr>
-                <tr><td class="py-2 px-4 font-semibold">Plateau Fotocamera</td><td class="py-2 px-4 font-mono">44.04 × 28.66 × 1.29 mm</td><td class="py-2 px-4">Vetro fumè lucido con 3 lenti Ø 11.67 mm, Flash e LiDAR</td></tr>
-                <tr><td class="py-2 px-4 font-semibold">Display Posteriore</td><td class="py-2 px-4 font-mono">41.20 × 25.80 mm (R 5.6)</td><td class="py-2 px-4">OLED Touch attivo con UI fotocamera dedicata</td></tr>
-                <tr><td class="py-2 px-4 font-semibold">Tasti Fisici</td><td class="py-2 px-4 font-mono">REC 9.6 mm / Vol 6.8 mm</td><td class="py-2 px-4">Tasto REC Rosso superiore + Volume lato corto + Power</td></tr>
-                <tr><td class="py-2 px-4 font-semibold">Doppia Porta USB-C</td><td class="py-2 px-4 font-mono">Interasse 14.40 mm</td><td class="py-2 px-4">2.4 mm di luce libera tra due connettori da 12 mm</td></tr>
-              </tbody>
-            </table>
-          </div>
-        `
+        dark: false, tag: "SLIDE 03 // SPECIFICHE CAD 1:1", title: "Quote Reali 1:1 del Modello Rhino",
+        subtitle: "Tutti gli interassi coincidono al centesimo coi ricambi fisici Apple.",
+        body: `<div class="overflow-x-auto pt-3"><table class="w-full text-xs text-left border-collapse bg-white rounded-2xl overflow-hidden border border-zinc-200">
+          <thead class="bg-zinc-900 text-white font-mono"><tr><th class="py-2 px-4">PARTE CAD</th><th class="py-2 px-4">QUOTA 1:1 (MM)</th><th class="py-2 px-4">FUNZIONE</th></tr></thead>
+          <tbody class="divide-y divide-zinc-200 text-zinc-800">
+            <tr><td class="py-2 px-4 font-semibold">Scocca Unibody Titanio</td><td class="py-2 px-4 font-mono">71.50 × 48.45 × 10.63 mm</td><td class="py-2 px-4">Parete 0.90 mm, compatibile con la parte alta delle cover iPhone Pro</td></tr>
+            <tr><td class="py-2 px-4 font-semibold">Plateau Vetro + Lenti</td><td class="py-2 px-4 font-mono">65.99 × 42.95 mm (Lenti Ø17.49)</td><td class="py-2 px-4">Accoglie i 3 anelli in zaffiro originali, Flash True Tone e LiDAR</td></tr>
+            <tr><td class="py-2 px-4 font-semibold">Tasti Volume Slim & REC</td><td class="py-2 px-4 font-mono">Vol 1.76mm / REC Rosso 14.4mm</td><td class="py-2 px-4">2 tasti Volume sottili sul lato corto destro + REC Rosso in alto</td></tr>
+            <tr><td class="py-2 px-4 font-semibold">Doppia USB-C Inferiore</td><td class="py-2 px-4 font-mono">Interasse 21.58 mm</td><td class="py-2 px-4">Oltre 9.5 mm di luce libera tra cavo ricarica PD e cavo SSD</td></tr>
+          </tbody></table></div>`
       },
       {
-        dark: false,
-        tag: "SLIDE 04 // STRATEGIA HARDWARE",
-        title: "Approccio «AliExpress Parts-Bin»",
-        subtitle: "Come assemblare una cinema-cam usando ricambi originali/OEM a basso costo.",
-        body: `
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
-            <div class="p-5 rounded-2xl bg-white border border-zinc-200">
-              <div class="font-mono text-xs text-zinc-500">MODULI OTTICI</div>
-              <div class="text-base font-bold text-zinc-900 mt-1">Gruppo Camera + LiDAR</div>
-              <p class="text-xs text-zinc-600 mt-1">Reperibile su AliExpress come ricambio OEM smontato: si incastra direttamente nelle 3 sedi del nostro plateau CAD.</p>
-            </div>
-            <div class="p-5 rounded-2xl bg-white border border-zinc-200">
-              <div class="font-mono text-xs text-zinc-500">ELABORAZIONE</div>
-              <div class="text-base font-bold text-zinc-900 mt-1">Logic Board Donatrice</div>
-              <p class="text-xs text-zinc-600 mt-1">Scheda madre iPhone Pro (anche senza FaceID, molto economica) abbinata ai suoi sensori originali.</p>
-            </div>
-            <div class="p-5 rounded-2xl bg-white border border-[#DC201C]">
-              <div class="font-mono text-xs text-[#DC201C]">INTERFACCIA & I/O</div>
-              <div class="text-base font-bold text-zinc-900 mt-1">Flex Cable & Dual USB-C</div>
-              <p class="text-xs text-zinc-600 mt-1">Prolunghe FPC B2B per collegare batteria LiPo compatta, dome switch dei tasti e doppio ingresso USB-C inferiore.</p>
-            </div>
-          </div>
-        `
+        dark: false, tag: "SLIDE 04 // STRATEGIA SOURCING", title: "Donor Phone vs Pezzi Singoli AliExpress",
+        subtitle: "Come evitare il blocco di serializzazione Apple risparmiando.",
+        body: `<div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 text-xs">
+          <div class="p-5 rounded-2xl bg-zinc-900 text-white border border-[#DC201C] space-y-1.5"><div class="font-mono text-[#DC201C] font-bold">OPZIONE A (CONSIGLIATA) // DONOR IPHONE PRO (~120 €)</div><div class="text-base font-bold">iPhone 15/16 Pro USA (eSIM) con Vetro/FaceID Rotto</div><p class="text-zinc-300">Prelevando Scheda Madre + 3 Fotocamere + LiDAR + Flat dallo stesso telefono donatore, tutti i numeri di serie sono già abbinati in fabbrica da Apple: zero errori software.</p></div>
+          <div class="p-5 rounded-2xl bg-white border border-zinc-200 space-y-1.5"><div class="font-mono text-zinc-500 font-bold">OPZIONE B // PEZZI SINGOLI ALIEXPRESS (~175 €)</div><div class="text-base font-bold text-zinc-900">Acquisto Separato dei Moduli</div><p class="text-zinc-600">Cercare su AliExpress <em>"Unlocked motherboard with paired rear camera"</em> più il kit dei 3 flat termici (Charging Port, Power/Flash, Earpiece).</p></div>
+        </div>`
       },
       {
-        dark: false,
-        tag: "SLIDE 05 // DISTINTA BASE (BOM)",
-        title: "Tabella Componenti & Budget Ricambi",
-        subtitle: "Lista della spesa su AliExpress per il primo prototipo funzionante.",
-        body: `
-          <div class="overflow-x-auto pt-3">
-            <table class="w-full text-xs text-left border-collapse bg-white rounded-2xl overflow-hidden border border-zinc-200">
-              <thead class="bg-zinc-900 text-white font-mono">
-                <tr>
-                  <th class="py-2 px-4">COMPONENTE</th>
-                  <th class="py-2 px-4">DETTAGLIO</th>
-                  <th class="py-2 px-4 text-right">STIMA COSTO</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-zinc-200 text-zinc-800">
-                <tr><td class="py-2 px-4 font-semibold">1. Gruppo Fotocamere + LiDAR</td><td class="py-2 px-4">Triplo modulo 48MP + scanner ToF + Flash LED</td><td class="py-2 px-4 font-mono text-right font-bold">65 – 85 €</td></tr>
-                <tr><td class="py-2 px-4 font-semibold">2. Scheda Madre Donatrice</td><td class="py-2 px-4">Logic board sbloccata (No-FaceID) con camera abbinata</td><td class="py-2 px-4 font-mono text-right font-bold">110 – 140 €</td></tr>
-                <tr><td class="py-2 px-4 font-semibold">3. Mini Display OLED Touch</td><td class="py-2 px-4">Pannello 1.9"–2.0" (41×26 mm) + controller MIPI</td><td class="py-2 px-4 font-mono text-right font-bold">25 – 35 €</td></tr>
-                <tr><td class="py-2 px-4 font-semibold">4. Batteria LiPo + Dual USB-C</td><td class="py-2 px-4">Cella ~1200 mAh alta scarica + flex PD + pass-through SSD</td><td class="py-2 px-4 font-mono text-right font-bold">20 – 30 €</td></tr>
-                <tr><td class="py-2 px-4 font-semibold">5. Flat Tasti, Vetrini Zaffiro, Viti</td><td class="py-2 px-4">Dome switch Power/Vol/REC, lenti zaffiro, viti pentalobo</td><td class="py-2 px-4 font-mono text-right font-bold">12 – 18 €</td></tr>
-              </tbody>
-            </table>
-          </div>
-        `
+        dark: false, tag: "SLIDE 05 // DISTINTA BASE (BOM)", title: "Budget Completo di Realizzazione",
+        subtitle: "Costo totale tra i 155 € e i 225 € per un prototipo 4K 120fps ProRes completo.",
+        body: `<div class="overflow-x-auto pt-3"><table class="w-full text-xs text-left border-collapse bg-white rounded-2xl overflow-hidden border border-zinc-200">
+          <thead class="bg-zinc-900 text-white font-mono"><tr><th class="py-2 px-4">COMPONENTE</th><th class="py-2 px-4">FONTE</th><th class="py-2 px-4 text-right">PREZZO</th></tr></thead>
+          <tbody class="divide-y divide-zinc-200 text-zinc-800">
+            <tr><td class="py-1.5 px-4 font-semibold">Scheda Madre + 3 Camere 48MP + LiDAR + Flat (da Donor Phone)</td><td class="py-1.5 px-4">eBay / Subito / AliExpress</td><td class="py-1.5 px-4 font-mono text-right font-bold">110 – 145 €</td></tr>
+            <tr><td class="py-1.5 px-4 font-semibold">Mini Display Touch 2.87" (61.7 × 38.7 mm) USB-C Video</td><td class="py-1.5 px-4">AliExpress</td><td class="py-1.5 px-4 font-mono text-right font-bold">25 – 32 €</td></tr>
+            <tr><td class="py-1.5 px-4 font-semibold">Cella LiPo Pouch 2100 mAh (55 × 32.5 × 2.2 mm)</td><td class="py-1.5 px-4">AliExpress</td><td class="py-1.5 px-4 font-mono text-right font-bold">10 – 14 €</td></tr>
+            <tr><td class="py-1.5 px-4 font-semibold">Splitter Interno Dual USB-C (PD + USB 3.2 10Gbps)</td><td class="py-1.5 px-4">AliExpress</td><td class="py-1.5 px-4 font-mono text-right font-bold">9 – 14 €</td></tr>
+            <tr><td class="py-1.5 px-4 font-semibold">Stampa 3D Scocca V3 (Resina SLA o Metallo CNC)</td><td class="py-1.5 px-4">JLCPCB / PCBWay</td><td class="py-1.5 px-4 font-mono text-right font-bold">15 – 55 €</td></tr>
+          </tbody></table></div>`
       },
       {
-        dark: false,
-        tag: "SLIDE 06 // PACKAGING & ARCHITETTURA INTERNA",
-        title: "Schema a Strati nei 5.89 mm",
-        subtitle: "Come incastrare ottiche, logica, batteria e schermo nello spessore della scocca.",
-        body: `
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-3 pt-4 font-mono text-xs">
-            <div class="p-4 rounded-2xl bg-zinc-900 text-white">
-              <div class="text-[#DC201C] font-bold">STRATO 1 // 2.28 mm</div>
-              <div class="font-sans font-bold text-sm mt-1">Plateau & Lenti</div>
-              <p class="font-sans text-zinc-400 mt-1">Vetro plateau (1.29 mm) + sporgenza anelli titanio e vetrini zaffiro (1.0 mm).</p>
-            </div>
-            <div class="p-4 rounded-2xl bg-white border border-zinc-200 text-zinc-900">
-              <div class="text-[#DC201C] font-bold">STRATO 2 // 3.07 mm</div>
-              <div class="font-sans font-bold text-sm mt-1">Tasca Ottica & PCB</div>
-              <p class="font-sans text-zinc-600 mt-1">Alloggiamento sensori fotocamere + logic board sandwich + pad termico.</p>
-            </div>
-            <div class="p-4 rounded-2xl bg-white border border-zinc-200 text-zinc-900">
-              <div class="text-[#DC201C] font-bold">STRATO 3 // 2.65 mm</div>
-              <div class="font-sans font-bold text-sm mt-1">LiPo & Dual USB-C</div>
-              <p class="font-sans text-zinc-600 mt-1">Cella LiPo pouch, canali per flat tasti laterali e doppia presa USB-C inferiore.</p>
-            </div>
-            <div class="p-4 rounded-2xl bg-zinc-900 text-white border-b-4 border-[#DC201C]">
-              <div class="text-[#DC201C] font-bold">STRATO 4 // 0.36 mm</div>
-              <div class="font-sans font-bold text-sm mt-1">OLED Posteriore</div>
-              <p class="font-sans text-zinc-400 mt-1">Schermo touch 41.2×25.8 mm incassato a filo con cornice Ceramic Shield.</p>
-            </div>
-          </div>
-        `
+        dark: false, tag: "SLIDE 06 // ARCHITETTURA INTERNA", title: "Stack-Up Verticale nei 10.63 mm",
+        subtitle: "3 piani indipendenti lungo l'asse Z per far entrare la scheda madre originale senza toccare le fotocamere.",
+        body: `<div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 text-xs">
+          <div class="p-4 rounded-2xl bg-zinc-900 text-white"><div class="font-mono text-[#DC201C] font-bold">PIANO FRONTALE (Z: 23.0→28.1)</div><div class="font-bold text-sm mt-1">Blocco 3 Camere + LiDAR</div><p class="text-zinc-400 mt-1">I 3 attuatori OIS profondi 4.65 mm occupano la metà sinistra; a destra siedono LiDAR e Flash.</p></div>
+          <div class="p-4 rounded-2xl bg-white border border-zinc-200"><div class="font-mono text-[#DC201C] font-bold">PIANO CENTRALE (Z: 20.6→22.7)</div><div class="font-bold text-sm text-zinc-900 mt-1">Scheda Madre iPhone (63.8mm)</div><p class="text-zinc-600 mt-1">Siede interamente sotto la quota dei sensori camera, con mezzanino B2B a destra sotto il LiDAR.</p></div>
+          <div class="p-4 rounded-2xl bg-white border border-zinc-200"><div class="font-mono text-[#DC201C] font-bold">PIANO POSTERIORE (Z: 17.4→20.3)</div><div class="font-bold text-sm text-zinc-900 mt-1">LiPo 2100mAh + OLED 2.87"</div><p class="text-zinc-600 mt-1">Cella LiPo da 2.2 mm + schermo posteriore touch serrato dalle 2 viti pentalobo.</p></div>
+        </div>`
       },
       {
-        dark: false,
-        tag: "SLIDE 07 // SFIDE TECNICHE & FATTIBILITÀ",
-        title: "I 3 Punti Critici & Il Piano B",
-        subtitle: "Soluzioni pratiche ai limiti del re-housing Apple.",
-        body: `
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-3 pt-4 text-xs">
-            <div class="p-4 rounded-2xl bg-white border border-zinc-200">
-              <div class="font-mono font-bold text-[#DC201C]">1. PAIRING APPLE</div>
-              <div class="font-bold text-zinc-900 mt-1">Serializzazione</div>
-              <p class="text-zinc-600 mt-1">Prelevare scheda madre e gruppo ottico dallo <strong>stesso iPhone donatore</strong> per mantenere LiDAR e calibrazione lenti.</p>
-            </div>
-            <div class="p-4 rounded-2xl bg-white border border-zinc-200">
-              <div class="font-mono font-bold text-[#DC201C]">2. DISSIPAZIONE</div>
-              <div class="font-bold text-zinc-900 mt-1">Calore in 4K 120</div>
-              <p class="text-zinc-600 mt-1">Accoppiare il SoC alla scocca CNC in alluminio/titanio tramite pad termico per usare il telaio come heatsink.</p>
-            </div>
-            <div class="p-4 rounded-2xl bg-white border border-zinc-200">
-              <div class="font-mono font-bold text-[#DC201C]">3. INGOMBRO PCB</div>
-              <div class="font-bold text-zinc-900 mt-1">Prolunghe FPC</div>
-              <p class="text-zinc-600 mt-1">Usare flat cable B2B schermati per ruotare la scheda logica o alloggiarla in un modulo magnetico.</p>
-            </div>
-            <div class="p-4 rounded-2xl bg-zinc-900 text-white border border-[#DC201C]">
-              <div class="font-mono font-bold text-[#DC201C]">PIANO B // OPEN</div>
-              <div class="font-bold mt-1">CM5 + Sony MIPI-CSI</div>
-              <p class="text-zinc-300 mt-1">Alternativa Linux: carrier board Raspberry Pi CM5 / Radxa + 3× sensori Sony IMX nella stessa scocca CAD.</p>
-            </div>
-          </div>
-        `
+        dark: false, tag: "SLIDE 07 // SENSORI ANTI-PANIC", title: "Come Evitare il Riavvio dei 3 Minuti di iOS",
+        subtitle: "I 3 piccoli flat originali da tenere collegati dentro la scocca.",
+        body: `<div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 text-xs">
+          <div class="p-4 rounded-2xl bg-white border border-zinc-200"><div class="font-mono font-bold text-[#DC201C]">1. CHARGING PORT FLEX</div><div class="font-bold text-zinc-900 mt-1">Sensore Barometrico/USB-C</div><p class="text-zinc-600 mt-1">Tenere il flat USB-C originale collegato alla scheda madre sul bordo inferiore.</p></div>
+          <div class="p-4 rounded-2xl bg-white border border-zinc-200"><div class="font-mono font-bold text-[#DC201C]">2. POWER + FLASH FLEX</div><div class="font-bold text-zinc-900 mt-1">Termistore Flash & Tasto REC</div><p class="text-zinc-600 mt-1">Alimenta il Flash True Tone, il microfono posteriore e i tasti fisici Volume/REC.</p></div>
+          <div class="p-4 rounded-2xl bg-white border border-zinc-200"><div class="font-mono font-bold text-[#DC201C]">3. BMS BATTERIA ORIGINALE</div><div class="font-bold text-zinc-900 mt-1">Lettura % Batteria Reale</div><p class="text-zinc-600 mt-1">Saldare la schedina BMS della batteria originale iPhone alla nuova cella LiPo da 2100 mAh.</p></div>
+        </div>`
       },
       {
-        dark: false,
-        tag: "SLIDE 08 // FABBRICAZIONE DELLA SCOCCA",
-        title: "Dal CAD Rhino al Prototipo Fisico",
-        subtitle: "Due iterazioni: stampa 3D rapida per testare gli incastri e fresatura CNC finale.",
-        body: `
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 text-xs">
-            <div class="p-5 rounded-2xl bg-white border border-zinc-200 space-y-2">
-              <div class="font-mono font-bold text-zinc-500">STEP 1 // PROTOTIPO V1 (STAMPA 3D)</div>
-              <div class="text-base font-bold text-zinc-900">Resina SLA Engineering / Nylon MJF</div>
-              <p class="text-zinc-600">Stampa a ±0.10 mm per verificare l'allineamento delle 3 lenti, il click dei tasti Volume/REC e l'inserimento affiancato dei due cavi USB-C (costo service online: <strong>~15 €</strong>).</p>
-            </div>
-            <div class="p-5 rounded-2xl bg-zinc-900 text-white border border-[#DC201C] space-y-2">
-              <div class="font-mono font-bold text-[#DC201C]">STEP 2 // PROTOTIPO V2 (METALLO CNC)</div>
-              <div class="text-base font-bold">Fresatura CNC 5 Assi Alluminio / Titanio</div>
-              <p class="text-zinc-300">Scocca definitiva in Alluminio 6061 anodizzato Titanio (o Titanio Grado 5), tasto REC anodizzato Rosso e filettature M1.2 per le viti pentalobo (costo service: <strong>~55 €</strong>).</p>
-            </div>
-          </div>
-        `
+        dark: false, tag: "SLIDE 08 // FABBRICAZIONE SCOCCA", title: "Stampa 3D SLA vs Fresatura CNC",
+        subtitle: "Dal file Rhino alla scocca fisica in 2 step.",
+        body: `<div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 text-xs">
+          <div class="p-5 rounded-2xl bg-white border border-zinc-200"><div class="font-mono font-bold text-zinc-500">PROTOTIPO V1 // RESINA SLA (~15 €)</div><div class="text-base font-bold text-zinc-900 mt-1">Test Incastri a Banco</div><p class="text-zinc-600 mt-1">Stampa in resina rigida grigia per verificare l'allineamento delle 3 lenti Ø 17.49 mm, dei 2 tasti Volume sottili e della doppia porta USB-C.</p></div>
+          <div class="p-5 rounded-2xl bg-zinc-900 text-white border border-[#DC201C]"><div class="font-mono font-bold text-[#DC201C]">FINAL BUILD // ALLUMINIO / TITANIO CNC (~55 €)</div><div class="text-base font-bold mt-1">Scocca Definitiva Dissipante</div><p class="text-zinc-300 mt-1">Fresatura CNC 5 assi che funge anche da dissipatore termico passivo per il chip A18/A19 Pro durante le riprese 4K 120fps.</p></div>
+        </div>`
       },
       {
-        dark: false,
-        tag: "SLIDE 09 // ROADMAP & BUDGET",
-        title: "4 Fasi Operative & Stima Costi",
-        subtitle: "Cronoprogramma di realizzazione personale in 6 settimane.",
-        body: `
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pt-4 text-xs">
-            <div class="p-4 rounded-2xl bg-white border border-zinc-200">
-              <div class="font-mono font-bold text-[#DC201C]">FASE 1 (SETT. 1-2)</div>
-              <div class="font-bold text-zinc-900 mt-1">Acquisto Pezzi</div>
-              <p class="text-zinc-600 mt-1">Ordine AliExpress: camere, LiDAR, flat, USB-C, display.</p>
-            </div>
-            <div class="p-4 rounded-2xl bg-white border border-zinc-200">
-              <div class="font-mono font-bold text-[#DC201C]">FASE 2 (SETT. 3)</div>
-              <div class="font-bold text-zinc-900 mt-1">Adattamento CAD</div>
-              <p class="text-zinc-600 mt-1">Misura a calibro dei ricambi e svuotamento Shell su Rhino.</p>
-            </div>
-            <div class="p-4 rounded-2xl bg-white border border-zinc-200">
-              <div class="font-mono font-bold text-[#DC201C]">FASE 3 (SETT. 4)</div>
-              <div class="font-bold text-zinc-900 mt-1">Stampa V1 & Test</div>
-              <p class="text-zinc-600 mt-1">Mockup in resina SLA e montaggio a banco dell'elettronica.</p>
-            </div>
-            <div class="p-4 rounded-2xl bg-white border border-zinc-200">
-              <div class="font-mono font-bold text-[#DC201C]">FASE 4 (SETT. 5-6)</div>
-              <div class="font-bold text-zinc-900 mt-1">CNC & Assembly</div>
-              <p class="text-zinc-600 mt-1">Scocca finale in metallo CNC e test di registrazione su SSD.</p>
-            </div>
-          </div>
-        `
+        dark: false, tag: "SLIDE 09 // ROADMAP", title: "4 Fasi fino al Primo Video 4K",
+        subtitle: "Piano operativo per il montaggio personale.",
+        body: `<div class="grid grid-cols-2 md:grid-cols-4 gap-3 pt-4 text-xs">
+          <div class="p-4 rounded-2xl bg-white border border-zinc-200"><div class="font-mono font-bold text-[#DC201C]">FASE 1</div><div class="font-bold text-zinc-900 mt-1">Donor + AliExpress</div><p class="text-zinc-600 mt-1">Acquisto iPhone Pro donatore + schermo 2.87", LiPo 2100mAh e splitter Dual USB-C.</p></div>
+          <div class="p-4 rounded-2xl bg-white border border-zinc-200"><div class="font-mono font-bold text-[#DC201C]">FASE 2</div><div class="font-bold text-zinc-900 mt-1">Setup Software iOS</div><p class="text-zinc-600 mt-1">Rimozione PIN, installazione Blackmagic Camera e test a banco fuori dalla scocca.</p></div>
+          <div class="p-4 rounded-2xl bg-white border border-zinc-200"><div class="font-mono font-bold text-[#DC201C]">FASE 3</div><div class="font-bold text-zinc-900 mt-1">Stampa SLA & Fit</div><p class="text-zinc-600 mt-1">Montaggio nei 7 livelli dentro la scocca stampata in 3D e cablaggio tasto REC rosso.</p></div>
+          <div class="p-4 rounded-2xl bg-white border border-zinc-200"><div class="font-mono font-bold text-[#DC201C]">FASE 4</div><div class="font-bold text-zinc-900 mt-1">Scocca CNC Finale</div><p class="text-zinc-600 mt-1">Assemblaggio definitivo nel guscio metallico e serraggio delle 2 viti pentalobo.</p></div>
+        </div>`
       },
       {
-        dark: true,
-        tag: "SLIDE 10 // CHIUSURA",
-        title: "Visione Finale & Prossimi Passi",
-        subtitle: "Il modello 3D V3 Dual USB-C è pronto per lo svuotamento interno e la stampa.",
-        body: `
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 text-xs">
-            <div class="p-5 rounded-2xl bg-white/5 border border-white/10">
-              <div class="font-mono text-[#DC201C] font-bold">NEXT STEP 01</div>
-              <div class="text-base font-bold text-white mt-1">Svuotamento Shell CAD</div>
-              <p class="text-zinc-400 mt-1">Applicare parete da 0.9 mm al solido V3 su Rhino e separare il frame posteriore tenuto dalle 2 viti pentalobo.</p>
-            </div>
-            <div class="p-5 rounded-2xl bg-white/5 border border-white/10">
-              <div class="font-mono text-[#DC201C] font-bold">NEXT STEP 02</div>
-              <div class="text-base font-bold text-white mt-1">Stampa Mockup SLA</div>
-              <p class="text-zinc-400 mt-1">Esportare in .STL / .STEP la scocca V3 per testare ergonomia e ingombro dei due cavi USB-C.</p>
-            </div>
-            <div class="p-5 rounded-2xl bg-[#DC201C]/15 border border-[#DC201C]/50">
-              <div class="font-mono text-[#DC201C] font-bold">NEXT STEP 03</div>
-              <div class="text-base font-bold text-white mt-1">Ordine Kit AliExpress</div>
-              <p class="text-zinc-300 mt-1">Reperire gruppo ottico iPhone Pro + LiDAR e doppio modulo flex USB-C per il primo dry-fit.</p>
-            </div>
-          </div>
-        `
+        dark: true, tag: "SLIDE 10 // CHIUSURA", title: "Tutto Pronto per Costruirla",
+        subtitle: "Modello 3D 1:1, Esploso a 7 Livelli e Lista Acquisti completi.",
+        body: `<div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 text-xs">
+          <div class="p-5 rounded-2xl bg-white/5 border border-white/10"><div class="font-mono text-[#DC201C] font-bold">FILE RHINO 8</div><div class="text-base font-bold text-white mt-1">Iphone17pro_mini.3dm</div><p class="text-zinc-400 mt-1">Contiene il modello V3 1:1 assemblato, l'esploso verticale a 7 livelli e le 2 tavole dei pezzi.</p></div>
+          <div class="p-5 rounded-2xl bg-white/5 border border-white/10"><div class="font-mono text-[#DC201C] font-bold">WEB 3D VIEWER</div><div class="text-base font-bold text-white mt-1">iphone17pro_mini_v3.glb</div><p class="text-zinc-400 mt-1">Esportato in scala 1:1 con i nuovi tasti Volume sottili e doppia USB-C.</p></div>
+          <div class="p-5 rounded-2xl bg-[#DC201C]/15 border border-[#DC201C]/50"><div class="font-mono text-[#DC201C] font-bold">START BUILD</div><div class="text-base font-bold text-white mt-1">155 – 225 € Totali</div><p class="text-zinc-300 mt-1">Usa i link nella sezione Shopping List qui sopra per ordinare i componenti.</p></div>
+        </div>`
       }
     ];
 
@@ -660,13 +803,9 @@
       const s = slides[currentSlide];
       const box = document.getElementById('slide-box');
       document.getElementById('slide-counter').textContent = String(currentSlide + 1).padStart(2, '0') + ' / 10';
-
-      if (s.dark) {
-        box.className = "rounded-3xl border border-white/15 bg-[#14161B] text-white min-h-[340px] p-8 sm:p-10 flex flex-col justify-between transition-all duration-300";
-      } else {
-        box.className = "rounded-3xl border border-zinc-300 bg-[#F4F4F6] text-zinc-900 min-h-[340px] p-8 sm:p-10 flex flex-col justify-between transition-all duration-300";
-      }
-
+      box.className = s.dark
+        ? "rounded-3xl border border-white/15 bg-[#14161B] text-white min-h-[320px] p-8 sm:p-10 flex flex-col justify-between transition-all duration-300"
+        : "rounded-3xl border border-zinc-300 bg-[#F4F4F6] text-zinc-900 min-h-[320px] p-8 sm:p-10 flex flex-col justify-between transition-all duration-300";
       box.innerHTML = `
         <div class="space-y-2 border-b ${s.dark ? 'border-white/10' : 'border-zinc-300'} pb-4">
           <div class="font-mono text-xs font-bold text-[#DC201C] tracking-wider">${s.tag}</div>
@@ -675,28 +814,20 @@
         </div>
         <div>${s.body}</div>
       `;
-
-      const dots = document.getElementById('slide-dots');
-      dots.innerHTML = slides.map((_, idx) => `
-        <button onclick="goSlide(${idx})" class="h-2 rounded-full transition-all ${
-          idx === currentSlide ? 'w-7 bg-[#DC201C]' : 'w-2 bg-white/20 hover:bg-white/40'
-        }"></button>
+      document.getElementById('slide-dots').innerHTML = slides.map((_, idx) => `
+        <button onclick="goSlide(${idx})" class="h-2 rounded-full transition-all ${idx === currentSlide ? 'w-7 bg-[#DC201C]' : 'w-2 bg-white/20 hover:bg-white/40'}"></button>
       `).join('');
     }
-
     function changeSlide(dir) {
       const n = currentSlide + dir;
-      if (n >= 0 && n < slides.length) {
-        currentSlide = n;
-        renderKeynoteSlide();
-      }
+      if (n >= 0 && n < slides.length) { currentSlide = n; renderKeynoteSlide(); }
     }
+    function goSlide(idx) { currentSlide = idx; renderKeynoteSlide(); }
 
-    function goSlide(idx) {
-      currentSlide = idx;
-      renderKeynoteSlide();
-    }
-
+    // Initialize everything
+    renderExpInspector();
+    drawExplode3D();
+    filterPageShop('all');
     renderKeynoteSlide();
   </script>
 </body>
